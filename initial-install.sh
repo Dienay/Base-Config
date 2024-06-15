@@ -60,4 +60,10 @@ for app in "${APPSFLATPACK[@]}"; do
   flatpak install flathub $app
 done
 
+# Instalar mongodb
+sudo pacman -S mongodb --noconfirm
+sudo systemctl start mongodb
+sudo systemctl enable mongodb
+
+
 echo "Instalação concluída."
