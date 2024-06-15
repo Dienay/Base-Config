@@ -10,28 +10,54 @@ sudo pacman -Syuu --noconfirm
 sudo pacman -S yay --noconfirm
 
 # Lista de pacotes a serem instalados
-APPS=(
-    "--needed base-devel git"
+APPSYAY=(
+    "--needed"
+    "base-devel"
+    "git"
     "google-chrome"
-    "visual-studio-code-bin sublime-text-dev sublime-merge intellij-idea-community-edition"
-    "blender inkscape gimp freecad krita"
-    "discord telegram-desktop slack-desktop"
-    "vlc audacity"
-    "pyenv python-pip"
-    "docker docker-compose"
-    "1password"
+    "ferdium-bin"
+    "visual-studio-code-bin"
+    "sublime-text-dev"
+    "sublime-merge"
+    "tilix"
+    "inkscape"
+    "gimp"
+    "freecad"
+    "krita"
+    "kdenlive"
+    "mongodb-compass"
+    "mysql-workbench"
+    "postman-bin"
+    "vlc"
+    "audacity"
+    "guiscrcpy"
+    "pyenv"
+    "python-pip"
+    "docker"
+    "docker-compose"
+    "podman-desktop"
+    "bitwarden"
+    "nodejs"
+    "npm"
+    "nvm"
 )
  
-# Instalando APPS
-for app in "${APPS[@]}"; do
+# Instalando APPSYAY
+for app in "${APPSYAY[@]}"; do
   yay -S $app --noconfirm
 done
 
-# Instala o Docker Desktop
-cd /tmp
-wget -O docker-desktop.pkg.tar.zst https://desktop.docker.com/linux/main/amd64/136059/docker-desktop-4.27.1-x86_64.pkg.tar.zst
-sudo pacman -U ./docker-desktop.pkg.tar.zst
-systemctl --user start docker-desktop
-cd ~
+# Lista de flatpacks a serem instalados
+APPSFLATPACK=(
+    "com.github.tchx84.Flatseal"
+    "io.github.flattool.Warehouse"
+    "it.mijorus.gearlever "
+    "me.iepure.devtoolbox"
+)
+ 
+# Instalando APPSFLATPACK
+for app in "${APPSFLATPACK[@]}"; do
+  flatpak install flathub $app
+done
 
 echo "Instalação concluída."
