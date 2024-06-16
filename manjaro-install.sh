@@ -41,10 +41,10 @@ APPSYAY=(
     "npm"
     "nvm"
 )
- 
+
 # Instalando APPSYAY
 for app in "${APPSYAY[@]}"; do
-  yay -S $app --noconfirm
+    yay -S $app --noconfirm
 done
 
 # Lista de flatpacks a serem instalados
@@ -54,16 +54,19 @@ APPSFLATPACK=(
     "it.mijorus.gearlever "
     "me.iepure.devtoolbox"
 )
- 
+
 # Instalando APPSFLATPACK
 for app in "${APPSFLATPACK[@]}"; do
-  flatpak install flathub $app
+    flatpak install flathub $app
 done
 
 # Instalar mongodb
 sudo pacman -S mongodb --noconfirm
 sudo systemctl start mongodb
 sudo systemctl enable mongodb
+
+sudo chsh -s $(which zsh) $(whoami)
+
 
 
 echo "Instalação concluída."

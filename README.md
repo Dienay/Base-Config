@@ -1,1 +1,3 @@
-# Base-Config-Manjaro
+# Base-Config
+
+Auxilio no pós-instalação
