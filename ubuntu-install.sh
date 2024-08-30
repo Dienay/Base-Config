@@ -71,8 +71,8 @@ FLATPACK=(
     "flathub io.github.flattool.Warehouse"
     "flathub it.mijorus.gearlever"
     "flathub me.iepure.devtoolbox"
-    "flatpak install flathub md.obsidian.Obsidian"
-    "flatpak install flathub com.obsproject.Studio"   
+    "flathub md.obsidian.Obsidian"
+    "flathub com.obsproject.Studio"   
 )
 
 # Instala os pacotes
