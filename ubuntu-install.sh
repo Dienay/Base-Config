@@ -61,6 +61,18 @@ for app in "${APPS[@]}"; do
     echo "Instalando " + $app + "..."
 done
 
+# Configurar Git
+echo "Configurando Git..."
+git config --global user.name "Seu Nome"
+git config --global user.email "seu.email@example.com"
+
+# Instalar Docker
+echo "Instalando Docker..."
+sudo apt install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+
 # Baixar e instalar pacotes .deb
 echo "Baixando e instalando pacotes .deb..."
 cd /tmp
