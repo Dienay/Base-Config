@@ -11,35 +11,32 @@ sudo pacman -S yay --noconfirm
 
 # Lista de pacotes a serem instalados
 APPSYAY=(
-    "--needed"
-    "base-devel"
-    "git"
-    "google-chrome"
-    "ferdium-bin"
-    "visual-studio-code-bin"
-    "sublime-text-dev"
-    "sublime-merge"
-    "tilix"
-    "inkscape"
-    "gimp"
-    "freecad"
-    "krita"
-    "kdenlive"
-    "mongodb-compass"
-    "mysql-workbench"
-    "postman-bin"
-    "vlc"
+    "amarok"
+    "asdf-vm"
     "audacity"
-    "guiscrcpy"
-    "pyenv"
-    "python-pip"
+    "base-devel"
+    "bitwarden"
     "docker"
     "docker-compose"
+    "gimp"
+    "git"
+    "google-chrome"
+    "guiscrcpy"
+    "handbrake"
+    "inkscape"
+    "kdenlive"
+    "mysql-workbench"
     "podman-desktop"
-    "bitwarden"
-    "nodejs"
-    "npm"
-    "nvm"
+    "postman-bin"
+    "qbittorrent"
+    "sublime-merge"
+    "sublime-text-dev"
+    "tar"
+    "tilix"
+    "unzip"
+    "visual-studio-code-bin"
+    "vlc"
+    "obs-studio"
 )
 
 # Instalando APPSYAY
@@ -50,23 +47,36 @@ done
 # Lista de flatpacks a serem instalados
 APPSFLATPACK=(
     "com.github.tchx84.Flatseal"
+    "flathub md.obsidian.Obsidian"
     "io.github.flattool.Warehouse"
     "it.mijorus.gearlever "
-    "me.iepure.devtoolbox"
+    "com.github.jkotra.unlockr"
 )
 
 # Instalando APPSFLATPACK
 for app in "${APPSFLATPACK[@]}"; do
-    flatpak install flathub $app
+    flatpak install -y flathub $app
 done
 
-# Instalar mongodb
-sudo pacman -S mongodb --noconfirm
-sudo systemctl start mongodb
-sudo systemctl enable mongodb
+# Gerando ssh-keygen
+# echo "Gerando chave ssh..."
+# ssh-keygen -t ed25519 -C "dienaylima@gmail.com"
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/id_ed25519
+# cat .ssh/id_ed25519.pub
 
-sudo chsh -s $(which zsh) $(whoami)
+# # Instalar e configurar asdf
+# echo "Instalando asdf..."
+# echo '. /opt/asdf-vm/asdf.sh' >> ~/.zshrc
+# source ~/.zshrc
 
+asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin add kotlin https://github.com/asdf-community/asdf-kotlin.git
 
+asdf install java latest
+asdf install kotlin latest
+
+asdf global java latest
+asdf global kotlin latest
 
 echo "Instalação concluída."

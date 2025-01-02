@@ -17,7 +17,6 @@ APPS=(
     "handbrake"
     "inkscape"
     "stacer"
-    "uget"
     "qbittorrent"
     "gparted"
     "git"
